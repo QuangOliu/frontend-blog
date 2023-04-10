@@ -1,10 +1,10 @@
-import React, { useContext, useEffect } from "react";
+import React, { useEffect } from "react";
 import WorkoutDetails from "../components/WorkoutDetails";
 import WorkoutForm from "../components/WorkoutForm";
-import { WorkoutContext } from "../context/WorkoutContext";
+import { useWorkoutContext } from "../hooks/useWorkoutContext";
 
 function Home() {
-  const { workouts, dispatch } = useContext(WorkoutContext);
+  const { workouts, dispatch } = useWorkoutContext();
   useEffect(() => {
     const fetchWorkouts = async () => {
       const response = await fetch("/api/workout");

@@ -1,9 +1,8 @@
-import { useContext } from "react";
-import { WorkoutContext } from "../context/WorkoutContext";
 import formatDistanceToNow from "date-fns/formatDistanceToNow";
+import { useWorkoutContext } from "../hooks/useWorkoutContext";
 
 const WorkoutDetails = ({ workout }) => {
-  const { dispatch } = useContext(WorkoutContext);
+  const { dispatch } = useWorkoutContext();
 
   const handleDelete = async (id) => {
     const response = await fetch("/api/workout/" + id, {
